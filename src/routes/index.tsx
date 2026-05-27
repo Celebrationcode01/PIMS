@@ -223,29 +223,57 @@ const prevNews = () => {
       {/* ABOUT */}
 <motion.section
   id="about"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.5 }}
   viewport={{ once: true }}
-  transition={{ duration: 0.8 }}
-  className="mx-auto max-w-7xl px-6 py-20"
+  className="mx-auto max-w-7xl px-6 py-24"
 >
-  <p className="text-xs font-bold tracking-[0.25em] text-pims-dark/70">
-    ABOUT PIMS
-  </p>
+  <motion.p
+    initial={{ opacity: 0, y: 15 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    viewport={{ once: true }}
+    className="text-xs font-bold tracking-[0.25em] text-pims-dark/70"
+  >
+    SOBRE PIMS
+  </motion.p>
 
-  <h2 className="mt-3 font-display text-3xl font-semibold md:text-4xl">
+  <motion.h2
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: 0.1 }}
+    viewport={{ once: true }}
+    className="mt-3 font-display text-3xl font-semibold md:text-4xl"
+  >
     PIMS — Una nueva experiencia en cada taza.
-  </h2>
+  </motion.h2>
 
-  <p className="mt-3 max-w-xl text-sm text-pims-muted">
+  <motion.p
+    initial={{ opacity: 0, y: 15 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4, delay: 0.2 }}
+    viewport={{ once: true }}
+    className="mt-3 max-w-xl text-sm text-pims-muted"
+  >
     Una divertida mezcla de sabores con frutas frescas y nuestra exclusiva
     PIMS CREAM.
-  </p>
+  </motion.p>
 
   <div className="mt-10 grid items-center gap-10 md:grid-cols-2">
     <ul className="grid gap-5 sm:grid-cols-2">
-      {features.map((f) => (
-        <li key={f.title} className="flex items-start gap-3">
+      {features.map((f, index) => (
+        <motion.li
+          key={f.title}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.4,
+            delay: index * 0.1,
+          }}
+          viewport={{ once: true }}
+          className="flex items-start gap-3"
+        >
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-pims-pink-soft text-pims-pink-deep">
             <f.icon className="h-4 w-4" />
           </span>
@@ -259,7 +287,7 @@ const prevNews = () => {
               {f.desc}
             </p>
           </div>
-        </li>
+        </motion.li>
       ))}
     </ul>
 
@@ -275,7 +303,7 @@ const prevNews = () => {
       />
 
       <motion.img
-        animate={{ y: [0, -10, 0] }}
+        animate={{ y: [0, -6, 0] }}
         transition={{
           duration: 4,
           repeat: Infinity,
@@ -293,18 +321,32 @@ const prevNews = () => {
 </motion.section>
 
 {/* TEA MENU */}
-<section id="menu" className="bg-pims-green-soft py-20">
+<motion.section
+  id="menu"
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.5 }}
+  viewport={{ once: true }}
+  className="bg-pims-green-soft py-20"
+>
   <div className="mx-auto max-w-7xl px-6">
-    <p className="text-xs font-bold tracking-[0.25em] text-pims-dark/70">
+    
+    <motion.p
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      viewport={{ once: true }}
+      className="text-xs font-bold tracking-[0.25em] text-pims-dark/70"
+    >
       MENÚ DE TÉS PIMS
-    </p>
+    </motion.p>
 
     <div className="relative mt-10 flex items-center justify-center">
 
       {/* LEFT BUTTON */}
       <button
         onClick={prevTea}
-        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-lg transition hover:scale-110"
+        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-lg transition-transform hover:scale-110"
         aria-label="Previous"
       >
         <ChevronLeft className="h-5 w-5" />
@@ -312,11 +354,9 @@ const prevNews = () => {
 
       {/* CARD */}
       <motion.article
-        
         animate={{ opacity: 1 }}
-transition={{ duration: 0.2 }}
-       
-        className="group flex max-w-sm flex-col items-center rounded-3xl bg-white/90 p-6"
+        transition={{ duration: 0.2 }}
+        className="group flex w-full max-w-sm flex-col items-center rounded-3xl bg-white/90 p-6 shadow-xl"
       >
         <div className="aspect-square w-full overflow-hidden rounded-2xl bg-pims-pink-soft/40">
           <img
@@ -329,19 +369,31 @@ transition={{ duration: 0.2 }}
           />
         </div>
 
-        <h3 className="mt-4 text-sm font-bold tracking-wider text-pims-dark">
+        <motion.h3
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-4 text-sm font-bold tracking-wider text-pims-dark"
+        >
           {teas[currentTea].name}
-        </h3>
+        </motion.h3>
 
-        <span className="mt-2 rounded-full bg-pims-pink-soft px-4 py-1 text-xs font-semibold text-pims-pink-deep">
+        <motion.span
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="mt-2 rounded-full bg-pims-pink-soft px-4 py-1 text-xs font-semibold text-pims-pink-deep"
+        >
           {teas[currentTea].price}
-        </span>
+        </motion.span>
       </motion.article>
 
       {/* RIGHT BUTTON */}
       <button
         onClick={nextTea}
-        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-lg transition hover:scale-110"
+        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-lg transition-transform hover:scale-110"
         aria-label="Next"
       >
         <ChevronRight className="h-5 w-5" />
@@ -353,33 +405,47 @@ transition={{ duration: 0.2 }}
       {teas.map((_, index) => (
         <span
           key={index}
-          className={`h-2 w-2 rounded-full ${
+          className={`h-2 w-2 rounded-full transition-all duration-300 ${
             currentTea === index
-              ? "bg-pims-dark"
+              ? "bg-pims-dark scale-125"
               : "bg-pims-dark/30"
           }`}
         />
       ))}
     </div>
   </div>
-</section>
+</motion.section>
 
-      {/* FOOD MENU */}
-<section className="mx-auto max-w-7xl px-6 py-20">
-  <p className="text-xs font-bold tracking-[0.25em] text-pims-dark/70">
+     {/* FOOD MENU */}
+<motion.section
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  transition={{ duration: 0.5 }}
+  viewport={{ once: true }}
+  className="mx-auto max-w-7xl px-6 py-20"
+>
+  <motion.p
+    initial={{ opacity: 0, y: 15 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.4 }}
+    viewport={{ once: true }}
+    className="text-xs font-bold tracking-[0.25em] text-pims-dark/70"
+  >
     MENÚ DE COMIDA PIMS
-  </p>
+  </motion.p>
 
   <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-    {foods.map((f) => (
+    {foods.map((f, index) => (
       <motion.article
         key={f.name}
-        whileHover={{
-          y: -10,
-          scale: 1.03,
+        initial={{ opacity: 0, y: 25 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.4,
+          delay: index * 0.1,
         }}
-        transition={{ duration: 0.3 }}
-        className="group flex flex-col items-center rounded-2xl bg-pims-pink-soft/40 p-6"
+        viewport={{ once: true }}
+        className="group flex flex-col items-center rounded-2xl bg-pims-pink-soft/40 p-6 shadow-lg"
       >
         <div className="aspect-square w-full overflow-hidden rounded-xl bg-white">
           <img
@@ -388,21 +454,33 @@ transition={{ duration: 0.2 }}
             width={400}
             height={400}
             loading="lazy"
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+            className="h-full w-full object-cover transition-transform duration-300 md:group-hover:scale-110"
           />
         </div>
 
-        <h3 className="mt-4 text-sm font-bold tracking-wider text-pims-dark">
+        <motion.h3
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-4 text-sm font-bold tracking-wider text-pims-dark"
+        >
           {f.name}
-        </h3>
+        </motion.h3>
 
-        <span className="mt-2 rounded-full bg-pims-pink-soft px-4 py-1 text-xs font-semibold text-pims-pink-deep">
+        <motion.span
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="mt-2 rounded-full bg-pims-pink-soft px-4 py-1 text-xs font-semibold text-pims-pink-deep"
+        >
           {f.price}
-        </span>
+        </motion.span>
       </motion.article>
     ))}
   </div>
-</section>
+</motion.section>
 
  {/* NEWS */}
 <section id="blog" className="mx-auto max-w-7xl px-6 pb-24">
