@@ -312,13 +312,10 @@ const prevNews = () => {
 
       {/* CARD */}
       <motion.article
-        key={teas[currentTea].name}
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.4 }}
-       whileHover={{
-  y: -5,
-}}
+        
+        animate={{ opacity: 1 }}
+transition={{ duration: 0.2 }}
+       
         className="group flex max-w-sm flex-col items-center rounded-3xl bg-white/90 p-6"
       >
         <div className="aspect-square w-full overflow-hidden rounded-2xl bg-pims-pink-soft/40">
@@ -328,7 +325,7 @@ const prevNews = () => {
             width={400}
             height={400}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+            className="h-full w-full object-cover transition-transform duration-300 md:group-hover:scale-110"
           />
         </div>
 
