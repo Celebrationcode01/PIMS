@@ -148,7 +148,7 @@ const prevNews = () => {
       aria-hidden
     />
 
-    <div className="relative grid items-center gap-10 md:grid-cols-2">
+    <div className="relative grid items-center gap-6 md:gap-10 md:grid-cols-2">
 
       {/* TEXT SIDE */}
       <motion.div
@@ -316,11 +316,10 @@ const prevNews = () => {
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.4 }}
-        whileHover={{
-          y: -10,
-          scale: 1.03,
-        }}
-        className="group flex max-w-sm flex-col items-center rounded-3xl bg-white/70 p-6 backdrop-blur-md"
+       whileHover={{
+  y: -5,
+}}
+        className="group flex max-w-sm flex-col items-center rounded-3xl bg-white/90 p-6"
       >
         <div className="aspect-square w-full overflow-hidden rounded-2xl bg-pims-pink-soft/40">
           <img
@@ -329,7 +328,7 @@ const prevNews = () => {
             width={400}
             height={400}
             loading="lazy"
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
           />
         </div>
 
@@ -419,7 +418,7 @@ const prevNews = () => {
     {/* LEFT */}
     <button
       onClick={prevNews}
-      className="absolute -left-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/70 p-2 shadow transition hover:scale-110 md:block"
+      className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2 shadow transition-transform hover:scale-110"
       aria-label="Previous"
     >
       <ChevronLeft className="h-5 w-5" />
@@ -430,7 +429,7 @@ const prevNews = () => {
       key={newsSlides[currentNews].title}
       initial={{ opacity: 0, x: -40 }}
       animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.25 }}
       className="overflow-hidden rounded-2xl"
     >
       <img
@@ -439,7 +438,7 @@ const prevNews = () => {
         width={768}
         height={640}
         loading="lazy"
-        className="h-80 w-full object-cover"
+        className="h-80 w-full object-cover will-change-transform"
       />
     </motion.div>
 
@@ -466,7 +465,7 @@ const prevNews = () => {
     {/* RIGHT */}
     <button
       onClick={nextNews}
-      className="absolute -right-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/70 p-2 shadow transition hover:scale-110 md:block"
+      className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/90 p-2 shadow transition-transform hover:scale-110"
       aria-label="Next"
     >
       <ChevronRight className="h-5 w-5" />
