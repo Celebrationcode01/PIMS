@@ -84,6 +84,7 @@ const features = [
 
 function Index() {
   const [currentTea, setCurrentTea] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 const [currentNews, setCurrentNews] = useState(0);
 
 const nextTea = () => {
@@ -107,7 +108,7 @@ const prevNews = () => {
   return (
     <div className="min-h-screen bg-pims-cream font-sans text-pims-dark">
       {/* NAV */}
-      <header className="sticky top-0 z-50 mx-auto flex max-w-7xl items-center justify-between border border-white/20 bg-white/60 px-6 py-6 backdrop-blur-xl">
+      <header className="sticky top-0 z-50 mx-auto flex max-w-7xl items-center justify-between border border-white/20 bg-white/90 px-6 py-6">
         <div className="font-display text-2xl font-bold tracking-tight text-pims-dark">PIMS - BUBBLE TEA SHOP</div>
         <nav className="hidden items-center gap-8 text-sm text-pims-dark md:flex">
           <a href="#about" className="hover:text-pims-pink-deep">Nosotros</a>
@@ -118,10 +119,22 @@ const prevNews = () => {
         <a href="tel:+971503011915" className="hidden items-center gap-2 rounded-full border border-pims-pink-deep/30 bg-white px-5 py-2 text-sm font-medium text-pims-dark shadow-sm transition hover:bg-pims-pink-soft md:flex">
           <Phone className="h-4 w-4 text-pims-pink-deep" /> +915-50-302-1917
         </a>
-        <button className="rounded-full border border-pims-pink-deep/30 bg-white p-2 md:hidden" aria-label="Menu">
+        <button
+  onClick={() => setMenuOpen(!menuOpen)}
+  className="rounded-full border border-pims-pink-deep/30 bg-white p-2 md:hidden"
+  aria-label="Menu"
+>
           <Menu className="h-5 w-5" />
         </button>
       </header>
+      {menuOpen && (
+  <div className="flex flex-col gap-4 bg-white px-6 py-4 shadow-md md:hidden">
+    <a href="#about">Nosotros</a>
+    <a href="#menu">Menu</a>
+    <a href="#find">Encuéntranos</a>
+    <a href="#blog">Blog</a>
+  </div>
+)}
 
 {/* HERO */}
 <section className="mx-auto max-w-7xl px-6">
@@ -291,7 +304,7 @@ const prevNews = () => {
       {/* LEFT BUTTON */}
       <button
         onClick={prevTea}
-        className="absolute -left-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-lg transition hover:scale-110 md:block"
+        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-lg transition hover:scale-110"
         aria-label="Previous"
       >
         <ChevronLeft className="h-5 w-5" />
@@ -332,7 +345,7 @@ const prevNews = () => {
       {/* RIGHT BUTTON */}
       <button
         onClick={nextTea}
-        className="absolute -right-4 top-1/2 z-10 hidden -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-lg transition hover:scale-110 md:block"
+        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-3 shadow-lg transition hover:scale-110"
         aria-label="Next"
       >
         <ChevronRight className="h-5 w-5" />
