@@ -108,7 +108,7 @@ const prevNews = () => {
     <div className="min-h-screen bg-pims-cream font-sans text-pims-dark">
       {/* NAV */}
       <header className="sticky top-0 z-50 mx-auto flex max-w-7xl items-center justify-between border border-white/20 bg-white/60 px-6 py-6 backdrop-blur-xl">
-        <div className="font-display text-2xl font-bold tracking-tight text-pims-dark">PIMS</div>
+        <div className="font-display text-2xl font-bold tracking-tight text-pims-dark">PIMS - BUBBLE TEA SHOP</div>
         <nav className="hidden items-center gap-8 text-sm text-pims-dark md:flex">
           <a href="#about" className="hover:text-pims-pink-deep">Nosotros</a>
           <a href="#menu" className="hover:text-pims-pink-deep">Menu</a>
